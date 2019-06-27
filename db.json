@@ -1,0 +1,181 @@
+{
+  "login" : {
+      "username": "test24",
+      "password": "Test@123",
+      "status": "success",
+      "message": "User logged in successfully"
+    },
+  "api" : [
+    {
+      "employeesmock": "5c91d0b3330000d070649dcd",
+      "empmock2": "5c91d3d1330000ad6f649ddb",
+      "projectlist": "5c91d4403300005671649ddd",
+      "barchart":  "5c92466d320000560b6bce8b"
+    }
+  ],
+"employees": [
+    {
+      "providerId": 1,
+      "firstName": "Sebastian",
+      "lastName": "Eschweiler",
+      "email": "sebastian@codingthesmartway.com",
+      "status": 2000
+    },
+    {
+      "providerId": 2,
+      "firstName": "Steve",
+      "lastName": "Palmer",
+      "email": "steve@codingthesmartway.com",
+      "status": 2000
+    },
+    {
+      "providerId": 3,
+      "firstName": "Ann",
+      "lastName": "Smith",
+      "email": "ann@codingthesmartway.com",
+      "status": 2000
+    },
+    {
+      "providerId": 4,
+      "firstName": "John",
+      "lastName": "Mark",
+      "email": "mark@gmail.com",
+      "status": 2000
+    },
+    {
+      "providerId": 5,
+      "firstName": "Jane",
+      "lastName": "SS",
+      "email": "jane@codingthesmartway.com",
+      "status": 2000
+    },
+    {
+      "providerId": 6,
+      "firstName": "Acley",
+      "lastName": "Jel",
+      "email": "acleygel@codingthesmartway.com",
+      "status": 2000
+    },
+    {
+      "providerId": 7,
+      "firstName": "Smith",
+      "lastName": "Johnson",
+      "email": "smith@codingthesmartway.com",
+      "status": 2000
+    },
+    {
+      "providerId": 8,
+      "firstName": "Samuels",
+      "lastName": "Henry",
+      "email": "samuelshen@codingthesmartway.com",
+      "status": 2000
+    },
+    {
+      "providerId": 9,
+      "firstName": "Hayden",
+      "lastName": "Mathew",
+      "email": "mathew@codingthesmartway.com",
+      "status": 2000
+    },
+    {
+      "providerId": 10,
+      "firstName": "Christo",
+      "lastName": "Star",
+      "email": "star@codingthesmartway.com",
+      "status": 2000
+    }
+  ],
+  "loginStatus": [
+    {
+      "status": 200,
+      "message": "User logged in successfully"
+    }
+  ],
+  "logout": [
+    {
+      "status": 500,
+      "message": "User logged out successfully"
+    }
+  ],
+  "projectslist": [
+    {
+      "projectid": 1,
+      "projectname": "project1"
+    },
+    {
+      "projectid": 2,
+      "projectname": "project2"
+    },
+    {
+      "projectid": 3,
+      "projectname": "project3"
+    },
+    {
+      "projectid": 4,
+      "projectname": "project4"
+    },
+    {
+      "projectid": 5,
+      "projectname": "project5"
+    },
+    {
+      "projectid": 6,
+      "projectname": "project6"
+    },
+    {
+      "projectid": 7,
+      "projectname": "project7"
+    },
+    {
+      "projectid": 8,
+      "projectname": "project8"
+    },
+    {
+      "projectid": 9,
+      "projectname": "project9"
+    },
+    {
+      "projectid": 10,
+      "projectname": "project10"
+    },
+    {
+      "projectid": 11,
+      "projectname": "project11"
+    },
+    {
+      "projectid": 12,
+      "projectname": "project12"
+    },
+    {
+      "projectid": 13,
+      "projectname": "project13"
+    },
+    {
+      "projectid": 14,
+      "projectname": "project14"
+    },
+    {
+      "projectid": 15,
+      "projectname": "project15"
+    },
+    {
+      "projectid": 16,
+      "projectname": "project16"
+    }
+  ],
+  "getbarchart": [
+    {
+      "id": 0,
+      "label": "label1",
+      "value1": 10,
+      "value2": 10,
+      "value3": 10
+   },{
+      "id": 1,
+      "label": "label2",
+      "value1": 10,
+      "value2": 10,
+      "value3": 10
+   }
+  ]
+}

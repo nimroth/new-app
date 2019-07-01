@@ -1,4 +1,8 @@
 {
+  "gender": [
+    { "key": "male", "value": "Male"},
+    { "key": "female", "value": "Female"}
+  ],
   "login" : {
       "username": "test24",
       "password": "Test@123",

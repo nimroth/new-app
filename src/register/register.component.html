@@ -1,0 +1,54 @@
+<mat-toolbar class="toolbar">
+    <img class="logo" src="assets/images/grimms.png">
+</mat-toolbar>
+<mat-card class="registration-card">
+    <div style="text-align: center">
+        <h2>Sign Up</h2>
+    </div>
+    <mat-horizontal-stepper>
+        <mat-step [stepControl]="basicDetails" label="Basic Details">
+            <form [formGroup]="basicDetails">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="First Name" formControlName="firstName" required>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Last Name" formControlName="lastName" required>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput [matDatepicker]="dob" placeholder="Date of Birth">
+                    <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+                    <mat-datepicker #dob></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <mat-label>Gender</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let gender of genders" [value]="gender.id">{{gender.value}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div style="text-align: center">
+                    <button mat-button color="primary" matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="communicationDetails" label="Communication Details">
+            <form [formGroup]="communicationDetails">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="House No. / Flat/ Floor" formControlName="houseNo" required> 
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Colony / Street/ Locality" formControlName="colony" required> 
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Mobile Number" formControlName="mobileNumber" required> 
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Email" formControlName="email" required> 
+                </mat-form-field>
+                <div style="text-align: center">
+                    <button mat-button color="accent" matStepperPrevious>Back</button>
+                    <button mat-button color="primary" matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+    </mat-horizontal-stepper>
+</mat-card>

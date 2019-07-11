@@ -1,0 +1,38 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="mat-card">
+        <mat-card-title fxLayout="row" fxLayoutAlign="center center" style="font-size: 16px">
+            <h1><b>Account Settings</b></h1>
+        </mat-card-title>
+        <div style="margin: 45px;">
+            <form [formGroup]="accountSettings">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="First Name" autocomplete="off" formControlName="firstName">
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Last Name" formControlName="lastName">
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput type="number" placeholder="Mobile Number" formControlName="mobileNumber">
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput type="email" placeholder="Email" formControlName="email">
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput [matDatepicker]="dob" formControlName="dateOfBirth" placeholder="Date of Birth" required>
+                    <mat-error *ngIf="accountSettings.controls.dateOfBirth.hasError('required')">Date fo birth is required</mat-error>
+                    <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+                    <mat-datepicker #dob></mat-datepicker>
+                </mat-form-field>
+                <!-- <mat-form-field class="full-width">
+                    <textarea matInput placeholder="Textarea"></textarea>
+                </mat-form-field> -->
+                
+                <mat-form-field class="full-width">
+                    <mat-select placeholder="Gender" formControlName="gender">
+                        <mat-option *ngFor="let gender of genders" value="gender.key">{{gender.value}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </form>
+        </div>
+    </mat-card>
+</div>

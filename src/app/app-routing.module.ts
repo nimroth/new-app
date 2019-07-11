@@ -25,6 +25,14 @@ const routes: Routes = [
   {
     path: 'employee-graph',
     loadChildren: 'src/employee-graph/employee-graph.module#EmployeeGraphModule'
+  },
+  {
+    path: 'dashboard-content',
+    loadChildren: 'src/dashboard-content/dashboard-content.module#DashboardContentModule'
+  },
+  {
+    path: 'account-settings',
+    loadChildren: 'src/account-settings/account-settings.module#AccountSettingsModule'
   }
 ];
 

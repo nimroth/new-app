@@ -2,11 +2,15 @@
     <img class="logo" src="assets/images/grimms.png">
 </mat-toolbar>
 <mat-drawer-container class="menu-container">
-    <mat-drawer mode="side" class="side-menu" opened>
+    <mat-drawer mode="side" class="side-menu" opened #drawer>
             <mat-action-list>
+                <mat-divider></mat-divider>
                 <button mat-list-item class="side-menu-list" (click)="onSelect(option1)"> {{option1}} </button>
                 <mat-divider></mat-divider>
                 <button mat-list-item class="side-menu-list" (click)="onSelect(option2)"> {{option2}} </button>
+                <mat-divider></mat-divider>
+                <button mat-list-item class="side-menu-list" (click)="onSelect(option3)"> {{option3}} </button>
+                <mat-divider></mat-divider>
             </mat-action-list>
     </mat-drawer>
     <mat-drawer-content>

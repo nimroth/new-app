@@ -14,6 +14,15 @@ const routes: Routes = [
       {
         path: 'employee-graph',
         loadChildren: 'src/employee-graph/employee-graph.module#EmployeeGraphModule'
+      },
+      {
+        path: 'account-settings',
+        loadChildren: 'src/account-settings/account-settings.module#AccountSettingsModule'
+      },
+      {
+        path: '',
+        redirectTo: 'employee-list',
+        pathMatch: 'full'
       }
     ]
   }

@@ -5,7 +5,17 @@ import { DashboardComponent } from './dashboard.component';
 const routes: Routes = [
   {
     path: '',
-    component: DashboardComponent
+    component: DashboardComponent,
+    children: [
+      {
+        path: 'employee-list',
+        loadChildren: 'src/employee-list/employee-list.module#EmployeeListModule'
+      },
+      {
+        path: 'employee-graph',
+        loadChildren: 'src/employee-graph/employee-graph.module#EmployeeGraphModule'
+      }
+    ]
   }
 ];
 

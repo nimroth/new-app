@@ -5,25 +5,30 @@
     <div style="text-align: center">
         <h2>Sign Up</h2>
     </div>
-    <mat-horizontal-stepper>
-        <mat-step [stepControl]="basicDetails" label="Basic Details">
+    <mat-horizontal-stepper linear>
+        <mat-step label="Basic Details">
             <form [formGroup]="basicDetails">
                 <mat-form-field class="full-width">
                     <input matInput placeholder="First Name" formControlName="firstName" required>
+                    <mat-error *ngIf="basicDetails.controls.firstName.hasError('required')">First name is required</mat-error>
+                    <!-- <mat-error *ngIf="commonForm.get('firstName').errors?.minLength">min length</mat-error> -->
                 </mat-form-field>
                 <mat-form-field class="full-width">
                     <input matInput placeholder="Last Name" formControlName="lastName" required>
+                    <mat-error *ngIf="basicDetails.controls.lastName.hasError('required')">Last name is required</mat-error>
                 </mat-form-field>
                 <mat-form-field class="full-width">
-                    <input matInput [matDatepicker]="dob" placeholder="Date of Birth">
+                    <input matInput [matDatepicker]="dob" formControlName="dateOfBirth" placeholder="Date of Birth" required>
+                    <mat-error *ngIf="basicDetails.controls.dateOfBirth.hasError('required')">Date fo birth is required</mat-error>
                     <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
                     <mat-datepicker #dob></mat-datepicker>
                 </mat-form-field>
                 <mat-form-field class="full-width">
                     <mat-label>Gender</mat-label>
-                    <mat-select>
-                        <mat-option *ngFor="let gender of genders" [value]="gender.id">{{gender.value}}</mat-option>
+                    <mat-select formControlName="gender">
+                        <mat-option *ngFor="let gender of genders" [value]="gender.key">{{gender.value}}</mat-option>
                     </mat-select>
+                    <mat-error *ngIf="basicDetails.controls.gender.hasError('required')">Gender is required</mat-error>
                 </mat-form-field>
                 <div style="text-align: center">
                     <button mat-button color="primary" matStepperNext>Next</button>
@@ -33,16 +38,90 @@
         <mat-step [stepControl]="communicationDetails" label="Communication Details">
             <form [formGroup]="communicationDetails">
                 <mat-form-field class="full-width">
-                    <input matInput placeholder="House No. / Flat/ Floor" formControlName="houseNo" required> 
+                    <input matInput placeholder="House No. / Flat/ Floor" formControlName="houseNo" required>
+                    <mat-error *ngIf="communicationDetails.controls.houseNo.hasError('required')">House no is required</mat-error>
                 </mat-form-field>
                 <mat-form-field class="full-width">
-                    <input matInput placeholder="Colony / Street/ Locality" formControlName="colony" required> 
+                    <input matInput placeholder="Colony / Street/ Locality" formControlName="colony" required>
+                    <mat-error *ngIf="communicationDetails.controls.colony.hasError('required')">Colony is required</mat-error> 
                 </mat-form-field>
                 <mat-form-field class="full-width">
-                    <input matInput placeholder="Mobile Number" formControlName="mobileNumber" required> 
+                    <input type="number" matInput placeholder="Mobile Number" maxLength="10" formControlName="mobileNumber" required>
+                    <mat-error *ngIf="communicationDetails.controls.mobileNumber.hasError('required')">Mobile Number is required</mat-error> 
+                    <mat-error *ngIf="communicationDetails['controls'].mobileNumber.hasError('pattern')">10 digits</mat-error>
                 </mat-form-field>
                 <mat-form-field class="full-width">
-                    <input matInput placeholder="Email" formControlName="email" required> 
+                    <input type="email" matInput placeholder="Email" formControlName="email" required>
+                    <mat-error *ngIf="communicationDetails.controls.email.hasError('required')">Email is required</mat-error>
+                    <mat-error *ngIf="communicationDetails['controls'].email.hasError('pattern')">is not a valid pattern</mat-error>
+                    <mat-error *ngIf="communicationDetails['controls'].email.hasError('minLength')">minimum 7 characters</mat-error>
+                    <mat-error *ngIf="communicationDetails['controls'].email.hasError('maxLength')">exceeds maximum character</mat-error>
+                </mat-form-field>
+                <div style="text-align: center">
+                    <button mat-button color="accent" matStepperPrevious>Back</button>
+                    <button mat-button color="primary" matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="details" label="Details">
+            <form [formGroup]="details">
+                
+                    <mat-checkbox formControlName="check">Check me!</mat-checkbox>
+                
+                <mat-form-field class="full-width">
+                    <mat-label>Select any</mat-label>
+                    <mat-select multiple>
+                        <mat-option *ngFor="let data of chkboxData" [value]="data.id">{{data.value}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <mat-chip-list #chipList aria-label="Fruit selection">
+                        <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable" [removable]="removable" (removed)="remove(fruit)">
+                        {{fruit}}
+                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        </mat-chip>
+                        <input
+                        placeholder="New fruit..."
+                        #fruitInput
+                        [formControl]="fruitCtrl"
+                        [matAutocomplete]="auto"
+                        [matChipInputFor]="chipList"
+                        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                        [matChipInputAddOnBlur]="addOnBlur"
+                        (matChipInputTokenEnd)="add($event)">
+                    </mat-chip-list>
+                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                        <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                        {{fruit}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+                <div style="text-align: center">
+                    <button mat-button color="accent" matStepperPrevious>Back</button>
+                    <button mat-button color="primary" matStepperNext>Next</button>
+                </div>
+                <!-- <mat-chip-list>
+                    <mat-chip>text1</mat-chip>
+                    <mat-chip>text2</mat-chip>
+                    <mat-chip>text3</mat-chip>
+                </mat-chip-list> -->
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="passwordDetails" label="Password">
+            <form [formGroup]="passwordDetails">
+                <mat-form-field class="full-width">
+                    <input matInput type="password" placeholder="password" formControlName="password" required>
+                    <mat-error *ngIf="passwordDetails.controls.password.hasError('required')">Password is required</mat-error>
+                    <mat-error *ngIf="passwordDetails.controls.password.hasError('pattern')">assword must contain at 
+                        least one uppercase character, one lowercase character, one digit and one symbol.
+                    </mat-error>
+                    <mat-error *ngIf="passwordDetails.controls.password.hasError('minLength')">min 7 characters allowed</mat-error>
+                    <mat-error *ngIf="passwordDetails.controls.password.hasError('maxLength')">exceeds maximum</mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword" required>
+                    <mat-error *ngIf="passwordDetails.controls.confirmPassword.hasError('required')">Confirm Password is required</mat-error>
+
                 </mat-form-field>
                 <div style="text-align: center">
                     <button mat-button color="accent" matStepperPrevious>Back</button>

@@ -17,6 +17,14 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: 'src/dashboard/dashboard.module#DashboardModule'
+  },
+  {
+    path: 'employee-list',
+    loadChildren: 'src/employee-list/employee-list.module#EmployeeListModule'
+  },
+  {
+    path: 'employee-graph',
+    loadChildren: 'src/employee-graph/employee-graph.module#EmployeeGraphModule'
   }
 ];
 

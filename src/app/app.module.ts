@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatToolbarModule, MatFormFieldModule } from '@angular/material';
+import { MatToolbarModule, MatFormFieldModule, MatSelectModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -19,7 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     MatToolbarModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,10 +4,12 @@
 <mat-drawer-container class="menu-container">
     <mat-drawer mode="side" class="side-menu" opened>
             <mat-action-list>
-                <button mat-list-item class="side-menu-list" (click)="onSelect(option1)"> List 1 </button>
+                <button mat-list-item class="side-menu-list" (click)="onSelect(option1)"> {{option1}} </button>
                 <mat-divider></mat-divider>
-                <button mat-list-item class="side-menu-list" (click)="onSelect(option2)"> List 2 </button>
+                <button mat-list-item class="side-menu-list" (click)="onSelect(option2)"> {{option2}} </button>
             </mat-action-list>
     </mat-drawer>
-    <mat-drawer-content>Main content</mat-drawer-content>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
 </mat-drawer-container>

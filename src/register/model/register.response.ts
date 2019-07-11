@@ -1,4 +1,4 @@
-export class Gender {
+export class KeyValuePair {
     id: string;
     value: string;
 }

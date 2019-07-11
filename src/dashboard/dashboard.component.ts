@@ -1,15 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
 
-  constructor() { }
+export class DashboardComponent {
 
-  ngOnInit() {
+  constructor(private router: Router) {
   }
 
+  option: string;
+  option1 = 'Employee List';
+  option2 = 'Employee Graph';
+
+  onSelect(option: string) {
+    if (option === this.option1) {
+      this.router.navigate(['dashboard/employee-list']);
+    }
+    if (option === this.option2) {
+      this.router.navigate(['dashboard/employee-graph']);
+    }
+  }
 }

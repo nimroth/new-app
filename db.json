@@ -1,10 +1,115 @@
 {
+  "listData": [
+    {
+      "providerId": 1,
+      "firstName": "Henry",
+      "lastName": "J",
+      "email": "henry@gmail.com"
+    },
+    {
+      "providerId": 2,
+      "firstName": "Calvin",
+      "lastName": "Sten",
+      "email": "sten@gmail.com"
+    },
+    {
+      "providerId": 3,
+      "firstName": "Einstein",
+      "lastName": "Joy",
+      "email": "joy@gmail.com"
+    },
+    {
+      "providerId": 4,
+      "firstName": "Calbury",
+      "lastName": "Ben",
+      "email": "ben@gmail.com"
+    },
+    {
+      "providerId": 5,
+      "firstName": "Steven",
+      "lastName": "Clinton",
+      "email": "clinton@gmail.com"
+    },
+    {
+      "providerId": 6,
+      "firstName": "Glan",
+      "lastName": "Mckey",
+      "email": "mckey@gmail.com"
+    },
+    {
+      "providerId": 7,
+      "firstName": "Julius",
+      "lastName": "Ashton",
+      "email": "ashton@gmail.com"
+    },
+    {
+      "providerId": 8,
+      "firstName": "Maxy",
+      "lastName": "Mark",
+      "email": "mark@gmail.com"
+    },
+    {
+      "providerId": 17,
+      "firstName": "Dennis",
+      "lastName": "Jenly",
+      "email": "jenly@gmail.com"
+    },
+    {
+      "providerId": 13,
+      "firstName": "Ravel",
+      "lastName": "Adhil",
+      "email": "ravel@gmail.com"
+    },
+    {
+      "providerId": 11,
+      "firstName": "Baby",
+      "lastName": "Solomon",
+      "email": "ravel@gmail.com"
+    }
+  ],
   "gender": [
     { "key": "male", "value": "Male"},
     { "key": "female", "value": "Female"}
   ],
+  "chipData": [
+    "Energy", "Character", "Benefit", "Stole", "Rider", "Music", "Macro", "Tune", "System", "Laptop", "Style", "Guide",
+    "Measure", "Termite", "Disk", "Board", "Negative", "Racing", "Winner", "Key", "Term", "Universe", "Trouble", "Vehicle",
+    "Wallet", "Crisis", "Bag", "Floor", "Tower", "Map"
+  ],
+  "chkboxvalues": [
+    { "key": "energy", "value": "Energy"},
+    { "key": "character", "value": "Character"},
+    { "key": "benefit", "value": "Benefit"},
+    { "key": "stole", "value": "Stole"},
+    { "key": "rider", "value": "Rider"},
+    { "key": "music", "value": "Music"},
+    { "key": "macro", "value": "Macro"},
+    { "key": "tune", "value": "Tune"},
+    { "key": "system", "value": "Syatem"},
+    { "key": "laptop", "value": "Laptop"},
+    { "key": "style", "value": "Style"},
+    { "key": "guide", "value": "Guide"},
+    { "key": "measure", "value": "Measure"},
+    { "key": "termite", "value": "Termite"},
+    { "key": "disk", "value": "Disk"},
+    { "key": "board", "value": "Board"},
+    { "key": "negative", "value": "Negative"},
+    { "key": "racing", "value": "Racing"},
+    { "key": "winner", "value": "Winner"},
+    { "key": "key", "value": "Key"},
+    { "key": "term", "value": "Term"},
+    { "key": "universe", "value": "Universe"},
+    { "key": "trouble", "value": "Trouble"},
+    { "key": "vehicle", "value": "Vehicle"},
+    { "key": "wallet", "value": "Wallet"},
+    { "key": "crisis", "value": "Crisis"},
+    { "key": "bag", "value": "Bag"},
+    { "key": "floor", "value": "Floor"},
+    { "key": "tower", "value": "Tower"},
+    { "key": "map", "value": "Map"}
+  ],
   "login" : {
-      "username": "test24",
+      "username": "test",
       "password": "Test@123",
       "status": "success",
       "message": "User logged in successfully"

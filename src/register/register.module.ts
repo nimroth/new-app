@@ -9,7 +9,11 @@ import { MatFormFieldModule,
          MatSelectModule,
          MatOptionModule,
          MatToolbarModule,
-         MatCardModule
+         MatCardModule,
+         MatCheckboxModule,
+         MatChipsModule,
+         MatAutocompleteModule,
+         MatIconModule
         } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -31,7 +35,11 @@ import { RegisterComponent } from './register.component';
     MatSelectModule,
     MatOptionModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatAutocompleteModule,
+    MatIconModule
   ]
 })
 export class RegisterModule { }

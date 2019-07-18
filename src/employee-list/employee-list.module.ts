@@ -7,7 +7,9 @@ import { MatTableModule,
         MatPaginatorModule,
         MatSortModule,
         MatFormFieldModule,
-        MatInputModule
+        MatInputModule,
+        MatIconModule,
+        MatCardModule
 } from '@angular/material';
 
 @NgModule({
@@ -19,7 +21,9 @@ import { MatTableModule,
     MatPaginatorModule,
     MatSortModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule,
+    MatCardModule
   ]
 })
 export class EmployeeListModule { }

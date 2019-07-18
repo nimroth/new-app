@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { LoginRoutingModule } from './login-routing.module';
 import { WebService } from '../services/web.service';
 import { LoginComponent } from './login.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule, MatToolbarModule, MatCardModule } from '@angular/material';
 
@@ -18,7 +19,8 @@ import { MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule, Mat
     ReactiveFormsModule,
     MatButtonModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    FlexLayoutModule
   ],
   providers: [WebService]
 })

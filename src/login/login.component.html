@@ -2,7 +2,7 @@
     <img class="logo" src="assets/images/grimms.png">
 </mat-toolbar>
 <mat-card class="login-card">
-    <div style="text-align: center">
+    <div fxLayout="row" fxLayoutAlign="center center">
         <h2>Sign In</h2>
     </div>   
     <form [formGroup]="loginForm" (ngSubmit)="login()">
@@ -24,8 +24,12 @@
                 Password is <strong>required</strong>
             </mat-error>
         </mat-form-field>
-        <div style="text-align: center; font-size: 12px;">
+        <div fxLayout="row" fxLayoutAlign="center center" style="font-size: 12px;">
             <button mat-raised-button color="primary" type="submit">Login</button>
+        </div>
+        <br>
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <b>New User? <a color="accent" routerLink="/register">Sign Up</a></b>
         </div>
     </form>
 </mat-card>

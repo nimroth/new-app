@@ -1,29 +1,28 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class WebService {
-  configUrl = environment.apiUrl;
+  constructor(private http: HttpClient) { }
 
-  constructor(private httpService: HttpClient) { }
-
-  getRequest<T>(urlType: string, params: HttpParams) {
-    return this.httpService.get(this.configUrl + urlType, {params});
+  get<T>(url: string, headers: HttpHeaders, params: HttpParams): Observable<T> {
+    return this.http.get<T>(url, {headers, params});
   }
 
-  postRequest<T>(urlType: string, req: T, params: HttpParams): Observable<T> {
-    return this.httpService.post<T>(this.configUrl + urlType, req, {params});
+  post<T>(url: string, body: T, headers: HttpHeaders, params: HttpParams): Observable<T> {
+    return this.http.post<T>(url, body, { headers, params});
   }
 
-  putRequest<T>(urlType: string, req: T, params: HttpParams): Observable<T> {
-    return this.httpService.put<T>(this.configUrl + urlType, req, {params});
+  put<T>(url: string, body: T, headers: HttpHeaders, params: HttpParams): Observable<T> {
+    return this.http.put<T>(url, body, {params});
   }
 
   // public loginRequest(): Observable<any> {
-  //   return this.httpService.get('http://localhost:3000/login');
+  //   return this.http.get('http://localhost:3000/login');
   // }
 }

@@ -16,6 +16,7 @@ export class DashboardComponent {
   option1 = 'Employee List';
   option2 = 'Employee Graph';
   option3 = 'Account Settings';
+  option4 = 'Log Out';
 
   onSelect(option: string) {
     if (option === this.option1) {
@@ -26,6 +27,9 @@ export class DashboardComponent {
     }
     if (option === this.option3) {
       this.router.navigate(['dashboard/account-settings']);
+    }
+    if (option === this.option4) {
+      this.router.navigate(['login']);
     }
   }
 }

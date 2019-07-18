@@ -16,7 +16,7 @@ import { MatFormFieldModule,
          MatIconModule
         } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterComponent } from './register.component';
 
@@ -39,7 +39,8 @@ import { RegisterComponent } from './register.component';
     MatCheckboxModule,
     MatChipsModule,
     MatAutocompleteModule,
-    MatIconModule
+    MatIconModule,
+    FlexLayoutModule
   ]
 })
 export class RegisterModule { }

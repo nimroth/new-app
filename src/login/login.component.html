@@ -1,7 +1,7 @@
 <mat-toolbar class="toolbar">
     <img class="logo" src="assets/images/grimms.png">
 </mat-toolbar>
-<div class="login-card">
+<mat-card class="login-card">
     <div style="text-align: center">
         <h2>Sign In</h2>
     </div>   
@@ -10,11 +10,11 @@
             <span id="errorMsg"></span>
         </div>
         <mat-form-field class="full-width" appearance="outline" color="primary">
-            <input matInput placeholder="username" formControlName="username" autocomplete="off" required>
-            <mat-error *ngIf="loginForm.controls.username.hasError('required')">
+            <input matInput placeholder="Employee Id" formControlName="id" autocomplete="off" required>
+            <mat-error *ngIf="loginForm.controls.id.hasError('required')">
                 Username is <strong>required</strong>
             </mat-error>
-            <mat-error><span *ngIf="loginForm.controls.username.dirty">White Space not allowed </span></mat-error>
+            <mat-error><span *ngIf="loginForm.controls.id.dirty">White Space not allowed </span></mat-error>
         </mat-form-field>
         <mat-form-field class="full-width" appearance="outline" color="primary">
             <input matInput placeholder="Password" type="password" formControlName="password" name="password" required
@@ -28,4 +28,4 @@
             <button mat-raised-button color="primary" type="submit">Login</button>
         </div>
     </form>
-</div>
+</mat-card>

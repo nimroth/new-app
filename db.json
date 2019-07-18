@@ -1,197 +1,202 @@
 {
-  "listData": [
+  "employee": [
     {
-      "providerId": 1,
-      "firstName": "Henry",
-      "lastName": "J",
-      "email": "henry@gmail.com"
+      "id": 101,
+      "firstName": "nim",
+      "lastName": "the",
+      "dateOfBirth": "08-24-1994",
+      "gender": "male",
+      "mobileNumber": 8776554332,
+      "email": "hn@fba.com",
+      "password": "test@123"
     },
     {
-      "providerId": 2,
-      "firstName": "Calvin",
-      "lastName": "Sten",
-      "email": "sten@gmail.com"
-    },
-    {
-      "providerId": 3,
-      "firstName": "Einstein",
-      "lastName": "Joy",
-      "email": "joy@gmail.com"
-    },
-    {
-      "providerId": 4,
-      "firstName": "Calbury",
-      "lastName": "Ben",
-      "email": "ben@gmail.com"
-    },
-    {
-      "providerId": 5,
-      "firstName": "Steven",
-      "lastName": "Clinton",
-      "email": "clinton@gmail.com"
-    },
-    {
-      "providerId": 6,
-      "firstName": "Glan",
-      "lastName": "Mckey",
-      "email": "mckey@gmail.com"
-    },
-    {
-      "providerId": 7,
-      "firstName": "Julius",
-      "lastName": "Ashton",
-      "email": "ashton@gmail.com"
-    },
-    {
-      "providerId": 8,
-      "firstName": "Maxy",
-      "lastName": "Mark",
-      "email": "mark@gmail.com"
-    },
-    {
-      "providerId": 17,
-      "firstName": "Dennis",
-      "lastName": "Jenly",
-      "email": "jenly@gmail.com"
-    },
-    {
-      "providerId": 13,
-      "firstName": "Ravel",
-      "lastName": "Adhil",
-      "email": "ravel@gmail.com"
-    },
-    {
-      "providerId": 11,
-      "firstName": "Baby",
-      "lastName": "Solomon",
-      "email": "ravel@gmail.com"
+      "id": 102,
+      "firstName": "Fazith",
+      "lastName": "Zuhail",
+      "dateOfBirth": "09-02-1998",
+      "gender": "male",
+      "mobileNumber": 7886553442,
+      "email": "nhi@gmail.com",
+      "password": "test@123"
     }
   ],
   "gender": [
-    { "key": "male", "value": "Male"},
-    { "key": "female", "value": "Female"}
+    {
+      "key": "male",
+      "value": "Male"
+    },
+    {
+      "key": "female",
+      "value": "Female"
+    }
   ],
   "chipData": [
-    "Energy", "Character", "Benefit", "Stole", "Rider", "Music", "Macro", "Tune", "System", "Laptop", "Style", "Guide",
-    "Measure", "Termite", "Disk", "Board", "Negative", "Racing", "Winner", "Key", "Term", "Universe", "Trouble", "Vehicle",
-    "Wallet", "Crisis", "Bag", "Floor", "Tower", "Map"
+    "Energy",
+    "Character",
+    "Benefit",
+    "Stole",
+    "Rider",
+    "Music",
+    "Macro",
+    "Tune",
+    "System",
+    "Laptop",
+    "Style",
+    "Guide",
+    "Measure",
+    "Termite",
+    "Disk",
+    "Board",
+    "Negative",
+    "Racing",
+    "Winner",
+    "Key",
+    "Term",
+    "Universe",
+    "Trouble",
+    "Vehicle",
+    "Wallet",
+    "Crisis",
+    "Bag",
+    "Floor",
+    "Tower",
+    "Map"
   ],
   "chkboxvalues": [
-    { "key": "energy", "value": "Energy"},
-    { "key": "character", "value": "Character"},
-    { "key": "benefit", "value": "Benefit"},
-    { "key": "stole", "value": "Stole"},
-    { "key": "rider", "value": "Rider"},
-    { "key": "music", "value": "Music"},
-    { "key": "macro", "value": "Macro"},
-    { "key": "tune", "value": "Tune"},
-    { "key": "system", "value": "Syatem"},
-    { "key": "laptop", "value": "Laptop"},
-    { "key": "style", "value": "Style"},
-    { "key": "guide", "value": "Guide"},
-    { "key": "measure", "value": "Measure"},
-    { "key": "termite", "value": "Termite"},
-    { "key": "disk", "value": "Disk"},
-    { "key": "board", "value": "Board"},
-    { "key": "negative", "value": "Negative"},
-    { "key": "racing", "value": "Racing"},
-    { "key": "winner", "value": "Winner"},
-    { "key": "key", "value": "Key"},
-    { "key": "term", "value": "Term"},
-    { "key": "universe", "value": "Universe"},
-    { "key": "trouble", "value": "Trouble"},
-    { "key": "vehicle", "value": "Vehicle"},
-    { "key": "wallet", "value": "Wallet"},
-    { "key": "crisis", "value": "Crisis"},
-    { "key": "bag", "value": "Bag"},
-    { "key": "floor", "value": "Floor"},
-    { "key": "tower", "value": "Tower"},
-    { "key": "map", "value": "Map"}
-  ],
-  "login" : {
-      "username": "test",
-      "password": "Test@123",
-      "status": "success",
-      "message": "User logged in successfully"
+    {
+      "key": "energy",
+      "value": "Energy"
     },
-  "api" : [
+    {
+      "key": "character",
+      "value": "Character"
+    },
+    {
+      "key": "benefit",
+      "value": "Benefit"
+    },
+    {
+      "key": "stole",
+      "value": "Stole"
+    },
+    {
+      "key": "rider",
+      "value": "Rider"
+    },
+    {
+      "key": "music",
+      "value": "Music"
+    },
+    {
+      "key": "macro",
+      "value": "Macro"
+    },
+    {
+      "key": "tune",
+      "value": "Tune"
+    },
+    {
+      "key": "system",
+      "value": "Syatem"
+    },
+    {
+      "key": "laptop",
+      "value": "Laptop"
+    },
+    {
+      "key": "style",
+      "value": "Style"
+    },
+    {
+      "key": "guide",
+      "value": "Guide"
+    },
+    {
+      "key": "measure",
+      "value": "Measure"
+    },
+    {
+      "key": "termite",
+      "value": "Termite"
+    },
+    {
+      "key": "disk",
+      "value": "Disk"
+    },
+    {
+      "key": "board",
+      "value": "Board"
+    },
+    {
+      "key": "negative",
+      "value": "Negative"
+    },
+    {
+      "key": "racing",
+      "value": "Racing"
+    },
+    {
+      "key": "winner",
+      "value": "Winner"
+    },
+    {
+      "key": "key",
+      "value": "Key"
+    },
+    {
+      "key": "term",
+      "value": "Term"
+    },
+    {
+      "key": "universe",
+      "value": "Universe"
+    },
+    {
+      "key": "trouble",
+      "value": "Trouble"
+    },
+    {
+      "key": "vehicle",
+      "value": "Vehicle"
+    },
+    {
+      "key": "wallet",
+      "value": "Wallet"
+    },
+    {
+      "key": "crisis",
+      "value": "Crisis"
+    },
+    {
+      "key": "bag",
+      "value": "Bag"
+    },
+    {
+      "key": "floor",
+      "value": "Floor"
+    },
+    {
+      "key": "tower",
+      "value": "Tower"
+    },
+    {
+      "key": "map",
+      "value": "Map"
+    }
+  ],
+  "login": {
+    "username": "test",
+    "password": "Test@123",
+    "status": "success",
+    "message": "User logged in successfully"
+  },
+  "api": [
     {
       "employeesmock": "5c91d0b3330000d070649dcd",
       "empmock2": "5c91d3d1330000ad6f649ddb",
       "projectlist": "5c91d4403300005671649ddd",
-      "barchart":  "5c92466d320000560b6bce8b"
-    }
-  ],
-"employees": [
-    {
-      "providerId": 1,
-      "firstName": "Sebastian",
-      "lastName": "Eschweiler",
-      "email": "sebastian@codingthesmartway.com",
-      "status": 2000
-    },
-    {
-      "providerId": 2,
-      "firstName": "Steve",
-      "lastName": "Palmer",
-      "email": "steve@codingthesmartway.com",
-      "status": 2000
-    },
-    {
-      "providerId": 3,
-      "firstName": "Ann",
-      "lastName": "Smith",
-      "email": "ann@codingthesmartway.com",
-      "status": 2000
-    },
-    {
-      "providerId": 4,
-      "firstName": "John",
-      "lastName": "Mark",
-      "email": "mark@gmail.com",
-      "status": 2000
-    },
-    {
-      "providerId": 5,
-      "firstName": "Jane",
-      "lastName": "SS",
-      "email": "jane@codingthesmartway.com",
-      "status": 2000
-    },
-    {
-      "providerId": 6,
-      "firstName": "Acley",
-      "lastName": "Jel",
-      "email": "acleygel@codingthesmartway.com",
-      "status": 2000
-    },
-    {
-      "providerId": 7,
-      "firstName": "Smith",
-      "lastName": "Johnson",
-      "email": "smith@codingthesmartway.com",
-      "status": 2000
-    },
-    {
-      "providerId": 8,
-      "firstName": "Samuels",
-      "lastName": "Henry",
-      "email": "samuelshen@codingthesmartway.com",
-      "status": 2000
-    },
-    {
-      "providerId": 9,
-      "firstName": "Hayden",
-      "lastName": "Mathew",
-      "email": "mathew@codingthesmartway.com",
-      "status": 2000
-    },
-    {
-      "providerId": 10,
-      "firstName": "Christo",
-      "lastName": "Star",
-      "email": "star@codingthesmartway.com",
-      "status": 2000
+      "barchart": "5c92466d320000560b6bce8b"
     }
   ],
   "loginStatus": [
@@ -279,12 +284,13 @@
       "value1": 10,
       "value2": 10,
       "value3": 10
-   },{
+    },
+    {
       "id": 1,
       "label": "label2",
       "value1": 10,
       "value2": 10,
       "value3": 10
-   }
+    }
   ]
 }

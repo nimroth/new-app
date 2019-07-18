@@ -2,9 +2,9 @@
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
 <table mat-table [dataSource]="dataSource" matSort>
-    <ng-container matColumnDef="providerId">
+    <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Employee ID</th>
-        <td mat-cell *matCellDef="let element">{{element.providerId}}</td>
+        <td mat-cell *matCellDef="let element">{{element.id}}</td>
     </ng-container>
     <ng-container matColumnDef="firstName">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>First Name</th>

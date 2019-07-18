@@ -1,10 +1,32 @@
 .registration-card {
-    width: 30%;
-    height: auto;
     margin: auto;
     padding-top: 1%;
-    margin-top: 5%;
     border: 1px solid black;
+    box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 15px;
+    margin-top: 5%;
+    width: 39%;
+}
+
+.registration-success-card {
+    margin: auto;
+    padding-top: 1%;
+    border: 1px solid black;
+    box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 15px;
+    margin-top: 5%;
+    width: 39%;
+}
+
+.font-sixteen {
+    font-size: 16px;
+}
+
+.label-width {
+    font-size: 18px;
+    margin-right: 12px;
+}
+
+.emp-width {
+    width: 10%;
 }
 
 .logo {
@@ -18,5 +40,9 @@
 
 .toolbar {
     height: 200px;
-    background-color: #445687;
+    background-color: #53947e;
+}
+
+mat-form-field {
+    margin-bottom: 18px;
 }

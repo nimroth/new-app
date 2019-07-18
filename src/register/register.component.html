@@ -1,15 +1,22 @@
 <mat-toolbar class="toolbar">
     <img class="logo" src="assets/images/grimms.png">
 </mat-toolbar>
-<mat-card class="registration-card">
-    <div style="text-align: center">
-        <h2>Sign Up</h2>
-    </div>
-    <mat-horizontal-stepper linear>
-        <mat-step label="Basic Details">
-            <form [formGroup]="basicDetails">
+<mat-card class="registration-card" *ngIf="!firstName">
+    <mat-card-title fxLayout="row" fxLayoutAlign="center center" style="font-size: 16px">
+        <h1><b>Sign Up</b></h1>
+    </mat-card-title>
+    <!-- <mat-horizontal-stepper linear>
+        <mat-step label="Basic Details"> -->
+        <div style="margin: 45px">
+            <form [formGroup]="basicDetails" (ngSubmit)="createEmployee(basicDetails.valid, basicDetails.value)">
+                <mat-label class="label-width">Employee Id : </mat-label>
+                <mat-form-field class="emp-width" appearance="outline">
+                    <input matInput placeholder="Employee Id" formControlName="id" required autocomplete="off" [value]="generatedEmployeeId">
+                    <mat-error *ngIf="basicDetails.controls.id.hasError('required')">id is required</mat-error>
+                    <!-- <mat-error *ngIf="commonForm.get('firstName').errors?.minLength">min length</mat-error> -->
+                </mat-form-field>
                 <mat-form-field class="full-width">
-                    <input matInput placeholder="First Name" formControlName="firstName" required>
+                    <input matInput placeholder="First Name" formControlName="firstName" required autocomplete="="off>
                     <mat-error *ngIf="basicDetails.controls.firstName.hasError('required')">First name is required</mat-error>
                     <!-- <mat-error *ngIf="commonForm.get('firstName').errors?.minLength">min length</mat-error> -->
                 </mat-form-field>
@@ -30,12 +37,42 @@
                     </mat-select>
                     <mat-error *ngIf="basicDetails.controls.gender.hasError('required')">Gender is required</mat-error>
                 </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input type="number" matInput placeholder="Mobile Number" maxLength="10" formControlName="mobileNumber" required>
+                    <mat-error *ngIf="basicDetails.controls.mobileNumber.hasError('required')">Mobile Number is required</mat-error> 
+                    <mat-error *ngIf="basicDetails['controls'].mobileNumber.hasError('pattern')">10 digits</mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input type="email" matInput placeholder="Email" formControlName="email" required>
+                    <mat-error *ngIf="basicDetails.controls.email.hasError('required')">Email is required</mat-error>
+                    <mat-error *ngIf="basicDetails['controls'].email.hasError('pattern')">is not a valid pattern</mat-error>
+                    <mat-error *ngIf="basicDetails['controls'].email.hasError('minLength')">minimum 7 characters</mat-error>
+                    <mat-error *ngIf="basicDetails['controls'].email.hasError('maxLength')">exceeds maximum character</mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput type="password" placeholder="password" formControlName="password" required>
+                    <mat-error *ngIf="basicDetails.controls.password.hasError('required')">Password is required</mat-error>
+                    <mat-error *ngIf="basicDetails.controls.password.hasError('pattern')">assword must contain at 
+                        least one uppercase character, one lowercase character, one digit and one symbol.
+                    </mat-error>
+                    <mat-error *ngIf="basicDetails.controls.password.hasError('minLength')">min 7 characters allowed</mat-error>
+                    <mat-error *ngIf="basicDetails.controls.password.hasError('maxLength')">exceeds maximum</mat-error>
+                </mat-form-field>
+                <!-- <mat-form-field class="full-width">
+                    <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword" required>
+                    <mat-error *ngIf="basicDetails.controls.confirmPassword.hasError('required')">Confirm Password is required</mat-error>
+                    <mat-error *ngIf="basicDetails.controls.password.value !== basicDetails.controls.confirmPassword.value">Confirm Password is not</mat-error>
+                </mat-form-field> -->
                 <div style="text-align: center">
-                    <button mat-button color="primary" matStepperNext>Next</button>
+                    <button mat-raised-button color="primary">Submit</button>
                 </div>
+                <!-- <div style="text-align: center">
+                    <button mat-button color="primary" matStepperNext>Next</button>
+                </div> -->
             </form>
-        </mat-step>
-        <mat-step [stepControl]="communicationDetails" label="Communication Details">
+        </div>
+        <!-- </mat-step> -->
+        <!-- <mat-step [stepControl]="communicationDetails" label="Communication Details">
             <form [formGroup]="communicationDetails">
                 <mat-form-field class="full-width">
                     <input matInput placeholder="House No. / Flat/ Floor" formControlName="houseNo" required>
@@ -100,11 +137,6 @@
                     <button mat-button color="accent" matStepperPrevious>Back</button>
                     <button mat-button color="primary" matStepperNext>Next</button>
                 </div>
-                <!-- <mat-chip-list>
-                    <mat-chip>text1</mat-chip>
-                    <mat-chip>text2</mat-chip>
-                    <mat-chip>text3</mat-chip>
-                </mat-chip-list> -->
             </form>
         </mat-step>
         <mat-step [stepControl]="passwordDetails" label="Password">
@@ -121,13 +153,18 @@
                 <mat-form-field class="full-width">
                     <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword" required>
                     <mat-error *ngIf="passwordDetails.controls.confirmPassword.hasError('required')">Confirm Password is required</mat-error>
-
                 </mat-form-field>
                 <div style="text-align: center">
                     <button mat-button color="accent" matStepperPrevious>Back</button>
                     <button mat-button color="primary" matStepperNext>Next</button>
                 </div>
             </form>
-        </mat-step>
-    </mat-horizontal-stepper>
+        </mat-step> -->
+    <!-- </mat-horizontal-stepper> -->
+</mat-card>
+<mat-card class="registration-success-card" *ngIf="firstName">
+    <mat-card-title fxLayout="row" fxLayoutAlign="center center" class="font-sixteen">
+        <h1><b>Registration Success</b></h1>
+    </mat-card-title>
+    <div fxLayout="row" fxLayoutAlign="center center" class="font-sixteen"><b>Congrats {{firstName}}, Your registration is successfull. You can <a [routerLink]="['/login']" color="primary">Login</a> now.</b></div>
 </mat-card>

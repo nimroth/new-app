@@ -5,7 +5,7 @@ import { LoginRoutingModule } from './login-routing.module';
 import { WebService } from '../services/web.service';
 import { LoginComponent } from './login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule, MatToolbarModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule, MatToolbarModule, MatCardModule } from '@angular/material';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -17,7 +17,8 @@ import { MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule, Mat
     MatIconModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule
   ],
   providers: [WebService]
 })

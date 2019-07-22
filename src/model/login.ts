@@ -1,4 +1,5 @@
 export class LoginRequest {
+    role: string;
     id: number;
     password: string;
 }

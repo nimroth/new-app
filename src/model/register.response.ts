@@ -3,6 +3,7 @@ export class KeyValuePair {
     value: string;
 }
 export class RegistrationDetails {
+    role: string;
     id: number;
     firstName: string;
     lastName: string;

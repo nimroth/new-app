@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { WebService } from '../services/web.service';
 import { RegisterService } from '../services/register.service';
+import { LoginService } from '../services/login.service';
 import * as LoginModel from '../model/login';
 import { LoginResponse } from './model/login.response';
 import { Router } from '@angular/router';
@@ -14,6 +15,7 @@ import * as RegisterModel from '../model/register.response';
 })
 export class LoginComponent implements OnInit {
   userData: RegisterModel.RegistrationDetails;
+  roles: RegisterModel.KeyValuePair[];
   hide = true;
   errorMsg: string;
   private req: LoginModel.LoginRequest;
@@ -21,6 +23,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private webService: WebService,
               private registerService: RegisterService,
+              private loginService: LoginService,
               private router: Router
     ) {
     this.req = new LoginModel.LoginRequest();
@@ -28,21 +31,25 @@ export class LoginComponent implements OnInit {
   }
 
   loginForm = new FormGroup({
+    role: new FormControl(),
     id: new FormControl(),
     password: new FormControl()
   });
 
   ngOnInit() {
+    this.loginService.getRole().subscribe((data) => {
+      this.roles = data;
+    });
   }
 
   login() {
     if (this.loginForm.valid) {
       this.req = this.loginForm.value;
-      this.loginService(this.req);
+      this.loginCall(this.req);
     }
   }
 
-  loginService(request: LoginModel.LoginRequest) {
+  loginCall(request: LoginModel.LoginRequest) {
     // this.webService.getRequest('/employeeData/', null).subscribe(data => {
     //   const response = JSON.parse(JSON.stringify(data));
     //   console.log('request data = ', request);
@@ -60,12 +67,21 @@ export class LoginComponent implements OnInit {
       const response = JSON.parse(JSON.stringify(data));
       console.log('request data = ', request);
       console.log('response data = ', response.password);
-      if (request.password === response.password) {
-          console.log('data = ', response.message);
-          this.router.navigate(['/dashboard']);
+      if (request.role === response.role) {
+        if (request.password === response.password) {
+            console.log('data = ', response.message);
+            if (request.role === 'admin') {
+              this.router.navigate(['/dashboard']);
+            } else {
+              this.router.navigate(['/user-page']);
+            }
+        } else {
+          console.log('username or password is incorrect');
+          this.errorMsg = 'username or password is incorrect';
+          document.getElementById('errorMsg').innerHTML = this.errorMsg;
+        }
       } else {
-        console.log('username or password is incorrect');
-        this.errorMsg = 'username or password is incorrect';
+        this.errorMsg = 'Your role is not matching';
         document.getElementById('errorMsg').innerHTML = this.errorMsg;
       }
     });

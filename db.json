@@ -1,23 +1,57 @@
 {
+  "role": [
+    {
+      "key": "admin",
+      "value": "Admin"
+    },
+    {
+      "key": "user",
+      "value": "User"
+    }
+  ],
   "employee": [
     {
-      "id": 101,
-      "firstName": "nim",
-      "lastName": "the",
+      "role": "admin",
+      "id": 100,
+      "firstName": "Nimrothson",
+      "lastName": "J",
       "dateOfBirth": "08-24-1994",
       "gender": "male",
-      "mobileNumber": 8776554332,
-      "email": "hn@fba.com",
+      "mobileNumber": 9884583599,
+      "email": "nimrothson@gmail.com",
       "password": "test@123"
     },
     {
-      "id": 102,
-      "firstName": "Fazith",
-      "lastName": "Zuhail",
-      "dateOfBirth": "09-02-1998",
+      "role": "user",
+      "id": 101,
+      "firstName": "Nimrothson",
+      "lastName": "J",
+      "dateOfBirth": "08-24-1994",
       "gender": "male",
-      "mobileNumber": 7886553442,
-      "email": "nhi@gmail.com",
+      "mobileNumber": 9884583599,
+      "email": "nimrothson@gmail.com",
+      "password": "test@123"
+    },
+    {
+      "role": "user",
+      "id": 102,
+      "firstName": "Julie",
+      "lastName": "Shabna",
+      "dateOfBirth": "04-27-1994",
+      "gender": "male",
+      "mobileNumber": 8778311727,
+      "email": "shabna@gmail.com",
+      "password": "test@123"
+    },
+    {
+      "role": "user",
+      "id": 103,
+      "firstName": "Antony",
+      "lastName": "Nickalson",
+      "dateOfBirth": "08-01-1994",
+      "gender": "male",
+      "mobileNumber": 8129822353,
+      "email": "nickalson10@gmail.com",
       "password": "test@123"
     }
   ],

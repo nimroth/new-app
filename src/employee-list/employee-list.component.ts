@@ -15,7 +15,7 @@ import { RegisterService } from '../services/register.service';
 export class EmployeeListComponent implements OnInit {
 
   ELEMENT_DATA: RegisterModel.RegistrationDetails[] = [];
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email'];
+  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'details'];
   dataSource = new MatTableDataSource<RegisterModel.RegistrationDetails>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;

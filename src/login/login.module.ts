@@ -6,7 +6,14 @@ import { WebService } from '../services/web.service';
 import { LoginComponent } from './login.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule, MatToolbarModule, MatCardModule } from '@angular/material';
+import { MatFormFieldModule,
+         MatInputModule,
+         MatIconModule,
+         MatButtonModule,
+         MatToolbarModule,
+         MatCardModule,
+         MatSelectModule
+        } from '@angular/material';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -20,7 +27,8 @@ import { MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule, Mat
     MatButtonModule,
     MatToolbarModule,
     MatCardModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSelectModule
   ],
   providers: [WebService]
 })

@@ -1,5 +1,40 @@
 .root {
     font-size: 12px;
-    background-color: #4c5452;
-    height: 724pt;
+    // background-color: #4c5452;
+    // height: 874pt;
+    // height: 664pt;
+}
+
+.footer {
+    margin-top: 5%;
+    height: 5%;
+    background-color: #446367;
+    margin: auto;
+    position: fixed;
+    float: left;
+    bottom: 0px;
+    z-index: 500;
+    width: 100%;
+}
+
+.toolbar {
+    height: 150px;
+    background-color: #446367;
+}
+
+.logo {
+    width: 8%;
+    height: 84%;
+}
+
+.header {
+    // margin-top: 5%;
+    // height: 5%;
+    // background-color: #53947e;
+    margin: auto;
+    position: fixed;
+    float: left;
+    top: 0px;
+    z-index: 500;
+    width: 100%;
 }

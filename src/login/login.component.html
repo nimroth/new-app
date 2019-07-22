@@ -1,35 +1,45 @@
-<mat-toolbar class="toolbar">
+<!-- <mat-toolbar class="toolbar">
     <img class="logo" src="assets/images/grimms.png">
-</mat-toolbar>
-<mat-card class="login-card">
-    <div fxLayout="row" fxLayoutAlign="center center">
-        <h2>Sign In</h2>
-    </div>   
-    <form [formGroup]="loginForm" (ngSubmit)="login()">
-        <div>
-            <span id="errorMsg"></span>
-        </div>
-        <mat-form-field class="full-width" appearance="outline" color="primary">
-            <input matInput placeholder="Employee Id" formControlName="id" autocomplete="off" required>
-            <mat-error *ngIf="loginForm.controls.id.hasError('required')">
-                Username is <strong>required</strong>
-            </mat-error>
-            <mat-error><span *ngIf="loginForm.controls.id.dirty">White Space not allowed </span></mat-error>
-        </mat-form-field>
-        <mat-form-field class="full-width" appearance="outline" color="primary">
-            <input matInput placeholder="Password" type="password" formControlName="password" name="password" required
-                autocomplete="off" [type]="hide ? 'password' : 'text'">
-            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            <mat-error *ngIf="loginForm.controls.password.hasError('required')">
-                Password is <strong>required</strong>
-            </mat-error>
-        </mat-form-field>
-        <div fxLayout="row" fxLayoutAlign="center center" style="font-size: 12px;">
-            <button mat-raised-button color="primary" type="submit">Login</button>
-        </div>
-        <br>
+</mat-toolbar> -->
+<div>
+    <mat-card class="login-card">
         <div fxLayout="row" fxLayoutAlign="center center">
-            <b>New User? <a color="accent" routerLink="/register">Sign Up</a></b>
-        </div>
-    </form>
-</mat-card>
+            <h2>Sign In</h2>
+        </div>   
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div>
+                <span id="errorMsg"></span>
+            </div>
+            <mat-label class="label-width">Role : </mat-label>
+            <mat-form-field class="role-width" appearance="outline">
+                <mat-label>Role</mat-label>
+                <mat-select formControlName="role">
+                    <mat-option *ngFor="let role of roles" [value]="role.key">{{role.value}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="loginForm.controls.role.hasError('required')">Gender is required</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline" color="primary">
+                <input matInput placeholder="Employee Id" formControlName="id" autocomplete="off" required>
+                <mat-error *ngIf="loginForm.controls.id.hasError('required')">
+                    Username is <strong>required</strong>
+                </mat-error>
+                <mat-error><span *ngIf="loginForm.controls.id.dirty">White Space not allowed </span></mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline" color="primary">
+                <input matInput placeholder="Password" type="password" formControlName="password" name="password" required
+                    autocomplete="off" [type]="hide ? 'password' : 'text'">
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-error *ngIf="loginForm.controls.password.hasError('required')">
+                    Password is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <div fxLayout="row" fxLayoutAlign="center center" style="font-size: 12px;">
+                <button mat-raised-button color="primary" type="submit">Login</button>
+            </div>
+            <br>
+            <div fxLayout="row" fxLayoutAlign="center center">
+                <b>New User? <a color="accent" routerLink="/register">Sign Up</a></b>
+            </div>
+        </form>
+    </mat-card>
+</div>

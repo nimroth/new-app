@@ -159,6 +159,7 @@ export class RegisterComponent implements OnInit {
       formData.id = this.generatedEmployeeId;
       formData.dateOfBirth = this.datePipe.transform(formData.dateOfBirth, 'MM-dd-yyyy');
       const registerData: RegisterModel.RegistrationDetails = {
+        role: 'user',
         id: formData.id,
         firstName: formData.firstName,
         lastName: formData.lastName,

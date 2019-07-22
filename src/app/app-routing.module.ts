@@ -29,6 +29,10 @@ const routes: Routes = [
   {
     path: 'account-settings',
     loadChildren: 'src/account-settings/account-settings.module#AccountSettingsModule'
+  },
+  {
+    path: 'user-page',
+    loadChildren: 'src/user-page/user-page.module#UserPageModule'
   }
 ];
 

@@ -8,15 +8,16 @@
         </div>   
         <form [formGroup]="loginForm" (ngSubmit)="login()">
             <div>
-                <span id="errorMsg"></span>
+                <span *ngIf="errorMsg" style="color: red">Error : </span>
+                <span id="errorMsg" style="color: red"></span>
             </div>
             <mat-label class="label-width">Role : </mat-label>
             <mat-form-field class="role-width" appearance="outline">
                 <mat-label>Role</mat-label>
                 <mat-select formControlName="role">
-                    <mat-option *ngFor="let role of roles" [value]="role.key">{{role.value}}</mat-option>
+                    <mat-option *ngFor="let role of roles" [value]="role.id">{{role.value}}</mat-option>
                 </mat-select>
-                <mat-error *ngIf="loginForm.controls.role.hasError('required')">Gender is required</mat-error>
+                <mat-error *ngIf="loginForm.controls.role.hasError('required')">Role is required</mat-error>
             </mat-form-field>
             <mat-form-field class="full-width" appearance="outline" color="primary">
                 <input matInput placeholder="Employee Id" formControlName="id" autocomplete="off" required>

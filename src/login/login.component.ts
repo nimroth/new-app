@@ -6,7 +6,7 @@ import { LoginService } from '../services/login.service';
 import * as LoginModel from '../model/login';
 import { LoginResponse } from './model/login.response';
 import { Router } from '@angular/router';
-import * as RegisterModel from '../model/register.response';
+import * as RegisterModel from '../model/register';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,7 @@ import * as RegisterModel from '../model/register.response';
 })
 export class LoginComponent implements OnInit {
   userData: RegisterModel.RegistrationDetails;
-  roles: RegisterModel.KeyValuePair[];
+  roles: RegisterModel.IdValuePair[];
   hide = true;
   errorMsg: string;
   private req: LoginModel.LoginRequest;
@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.loginService.getRole().subscribe((data) => {
       this.roles = data;
+      console.log('roles = ', this.roles);
     });
   }
 
@@ -49,40 +50,24 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  loginCall(request: LoginModel.LoginRequest) {
-    // this.webService.getRequest('/employeeData/', null).subscribe(data => {
-    //   const response = JSON.parse(JSON.stringify(data));
-    //   console.log('request data = ', request);
-    //   console.log('response data = ', response.password);
-    //   if (request.password === response.password) {
-    //       console.log('data = ', response.message);
-    //       this.router.navigate(['/dashboard']);
-    //   } else {
-    //     console.log('username or password is incorrect');
-    //     this.errorMsg = 'username or password is incorrect';
-    //     document.getElementById('errorMsg').innerHTML = this.errorMsg;
-    //   }
-    // });
-    this.registerService.getEmployeeUsingId(request.id).subscribe((data) => {
-      const response = JSON.parse(JSON.stringify(data));
-      console.log('request data = ', request);
-      console.log('response data = ', response.password);
-      if (request.role === response.role) {
-        if (request.password === response.password) {
-            console.log('data = ', response.message);
-            if (request.role === 'admin') {
+  loginCall(request) {
+    this.registerService.userLogin(request).subscribe((response) => {
+      if (response.status === 200) {
+        if (request.role === response.role) {
+          if (request.password === response.password  || request.id === response.id) {
+            if (request.role === '1') {
               this.router.navigate(['/dashboard']);
             } else {
-              this.router.navigate(['/user-page']);
+              this.router.navigate(['/user-page'], { queryParams: { id: response.id } });
             }
+          } else {
+            this.errorMsg = 'username or password is incorrect';
+            document.getElementById('errorMsg').innerHTML = this.errorMsg;
+          }
         } else {
-          console.log('username or password is incorrect');
-          this.errorMsg = 'username or password is incorrect';
+          this.errorMsg = 'Your role is not matching';
           document.getElementById('errorMsg').innerHTML = this.errorMsg;
         }
-      } else {
-        this.errorMsg = 'Your role is not matching';
-        document.getElementById('errorMsg').innerHTML = this.errorMsg;
       }
     });
   }

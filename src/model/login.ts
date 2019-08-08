@@ -6,7 +6,8 @@ export class LoginRequest {
 
 export class LoginResponse {
     id: number;
+    role: number;
     password: string;
-    status: string;
+    status: number;
     message: string;
 }

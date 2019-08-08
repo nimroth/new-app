@@ -6,11 +6,10 @@ import { map } from 'rxjs/operators';
 import { WebService} from './web.service';
 import { Constants } from '../constants/constants';
 import * as Model from '../model/login';
-import * as RegisterModel from '../model/register.response';
+import * as RegisterModel from '../model/register';
 
 const headers = new HttpHeaders({
-  'Content-type': 'application/json',
-  'Access-Control-Allow-Origin': '*'
+  'Content-type': 'application/json'
 });
 
 @Injectable({
@@ -22,9 +21,9 @@ export class LoginService {
 
   constructor(private webService: WebService) { }
 
-  getRole(): Observable<RegisterModel.KeyValuePair[]> {
+  getRole(): Observable<RegisterModel.IdValuePair[]> {
     return this.webService.get<object>(this.api.getRole, headers, undefined).pipe(map(
-      (data: RegisterModel.KeyValuePair[]) => {
+      (data: RegisterModel.IdValuePair[]) => {
         return data;
       }
     ));

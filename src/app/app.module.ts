@@ -9,10 +9,12 @@ import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatToolbarModule, MatFormFieldModule, MatSelectModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
+// import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    // UserProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RegisterService } from '../services/register.service';
-import * as RegisterModel from '../model/register.response';
+import * as RegisterModel from '../model/register';
 
 @Component({
   selector: 'app-account-settings',
@@ -10,7 +10,7 @@ import * as RegisterModel from '../model/register.response';
 })
 export class AccountSettingsComponent implements OnInit {
 
-  genders: RegisterModel.KeyValuePair[];
+  genders: RegisterModel.IdValuePair[];
   accountSettings = new FormGroup({
     firstName: new FormControl(),
     lastName: new FormControl(),
@@ -32,11 +32,7 @@ export class AccountSettingsComponent implements OnInit {
               ) { }
 
   ngOnInit() {
-    // this.webService.getRequest('/gender', null).subscribe((data: RegisterModel.KeyValuePair[]) => {
-    //   this.genders = data;
-    //   console.log('gender data = ', this.genders);
-    // });
-    this.registerService.getGender().subscribe((data: RegisterModel.KeyValuePair[]) => {
+    this.registerService.getGender().subscribe((data: RegisterModel.IdValuePair[]) => {
       this.genders = data;
       console.log('gender data = ', this.genders);
     });

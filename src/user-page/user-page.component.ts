@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-page',
@@ -8,26 +8,39 @@ import { Router } from '@angular/router';
 })
 export class UserPageComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  userId: number;
+
+  constructor(private router: Router,
+              private activatedRoute: ActivatedRoute
+              ) { }
 
   option: string;
-  option1 = 'Leave';
-  option2 = 'Salary';
-  option3 = 'Log Out';
+  option1 = 'My Dashboard';
+  option2 = 'Leave';
+  option3 = 'Salary';
+  option4 = 'Log Out';
 
   onSelect(option: string) {
     if (option === this.option1) {
-      this.router.navigate(['dashboard/employee-list']);
+      this.router.navigate(['user-page/user-dashboard']);
     }
     if (option === this.option2) {
-      this.router.navigate(['dashboard/employee-graph']);
+      this.router.navigate(['user-page/leave']);
     }
     if (option === this.option3) {
+      this.router.navigate(['user-page/salary']);
+    }
+    if (option === this.option4) {
       this.router.navigate(['login']);
     }
   }
 
   ngOnInit() {
+    this.activatedRoute.queryParams.subscribe(params => {
+      // tslint:disable-next-line: no-string-literal
+      this.userId = params['userId'];
+      console.log('user id = ', this.userId);
+    });
   }
 
 }

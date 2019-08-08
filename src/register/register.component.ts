@@ -9,10 +9,8 @@ import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { WebService } from '../services/web.service';
 import { RegisterService } from '../services/register.service';
-import * as RegisterModel from '../model/register.response';
+import * as RegisterModel from '../model/register';
 import { ValidationService } from '../services/validation.service';
-import { invalid } from '@angular/compiler/src/render3/view/util';
-import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-register',
@@ -22,9 +20,8 @@ import { EventEmitter } from 'events';
 export class RegisterComponent implements OnInit {
 
   private registerReq: RegisterModel.RegistrationDetails;
-  genders: RegisterModel.KeyValuePair[];
-  chkboxData: RegisterModel.KeyValuePair[];
-  employeeId: number;
+  genders: RegisterModel.IdValuePair[];
+  chkboxData: RegisterModel.IdValuePair[];
   generatedEmployeeId: number;
   chipData: string[] = [];
   firstName: string;
@@ -116,14 +113,10 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.basicDetails.controls.id.disable();
-    this.registerService.getGender().subscribe((data: RegisterModel.KeyValuePair[]) => {
+    this.registerService.getGender().subscribe((data: RegisterModel.IdValuePair[]) => {
       this.genders = data;
       console.log('gender data = ', this.genders);
     });
-    // this.webService.getRequest('/gender', null).subscribe((data: RegisterModel.KeyValuePair[]) => {
-    //   this.genders = data;
-    //   console.log('gender data = ', this.genders);
-    // });
     // this.webService.getRequest('/chkboxvalues', null).subscribe((data: RegisterModel.KeyValuePair[]) => {
     //   this.chkboxData = data;
     //   console.log('select data = ', this.chkboxData);
@@ -132,23 +125,9 @@ export class RegisterComponent implements OnInit {
     //   this.chipData = data;
     //   console.log('select data = ', this.chipData);
     // });
-    // this.webService.getRequest('/employeeData', null).subscribe((data: RegisterModel.RegistrationDetails[]) => {
-    //   if (data) {
-    //     data.forEach(res => {
-    //       this.employeeId = res.id;
-    //     });
-    //     console.log('emp id = ', this.employeeId);
-    //     this.generatedEmployeeId = (this.employeeId === undefined ? 101 : this.employeeId + 1);
-    //   }
-    //   console.log('gen id data = ', this.generatedEmployeeId);
-    // });
-    this.registerService.getEmployee().subscribe((data: RegisterModel.RegistrationDetails[]) => {
+    this.registerService.getUserId().subscribe((data: RegisterModel.UsedID) => {
       if (data) {
-        data.forEach(res => {
-          this.employeeId = res.id;
-        });
-        console.log('emp id = ', this.employeeId);
-        this.generatedEmployeeId = (this.employeeId === undefined ? 101 : this.employeeId + 1);
+          this.generatedEmployeeId = data.id;
       }
       console.log('gen id data = ', this.generatedEmployeeId);
     });
@@ -159,7 +138,7 @@ export class RegisterComponent implements OnInit {
       formData.id = this.generatedEmployeeId;
       formData.dateOfBirth = this.datePipe.transform(formData.dateOfBirth, 'MM-dd-yyyy');
       const registerData: RegisterModel.RegistrationDetails = {
-        role: 'user',
+        role: 2,
         id: formData.id,
         firstName: formData.firstName,
         lastName: formData.lastName,
@@ -169,7 +148,7 @@ export class RegisterComponent implements OnInit {
         email: formData.email,
         password: formData.password
       };
-      console.log('register data = ', this.basicDetails.value);
+      console.log('register data = ', registerData);
       // this.webService.postRequest('/employeeData', registerData, null, null).subscribe((data => {
       //   console.log('post data = ', data);
       //   if (data) {
@@ -180,6 +159,7 @@ export class RegisterComponent implements OnInit {
       this.registerService.createEmployee(registerData).subscribe((empData: RegisterModel.RegistrationDetails) => {
         if (empData) {
           this.firstName = empData.firstName;
+          console.log('fn = ', this.firstName);
         }
       });
     }
@@ -189,7 +169,6 @@ export class RegisterComponent implements OnInit {
     console.log('compare pwd = ', group);
     const pass = group.value;
     return (pass.password === pass.confirmPassword) ? undefined : {
-      // console.log('invalid = ', invalid),
       invalid: true,
     };
   }

@@ -1,8 +1,8 @@
 <!-- <mat-toolbar class="toolbar">
     <img class="logo" src="assets/images/grimms.png">
 </mat-toolbar> -->
-<div style="height: 692pt">
-    <mat-card class="registration-card" *ngIf="!firstName">
+<div style="height: 692pt" *ngIf="!firstName">
+    <mat-card class="registration-card">
         <mat-card-title fxLayout="row" fxLayoutAlign="center center" style="font-size: 16px">
             <h1><b>Sign Up</b></h1>
         </mat-card-title>
@@ -34,7 +34,7 @@
                     <mat-form-field class="full-width">
                         <mat-label>Gender</mat-label>
                         <mat-select formControlName="gender">
-                            <mat-option *ngFor="let gender of genders" [value]="gender.key">{{gender.value}}</mat-option>
+                            <mat-option *ngFor="let gender of genders" [value]="gender.id">{{gender.value}}</mat-option>
                         </mat-select>
                         <mat-error *ngIf="basicDetails.controls.gender.hasError('required')">Gender is required</mat-error>
                     </mat-form-field>
@@ -164,9 +164,11 @@
         <!-- </mat-horizontal-stepper> -->
     </mat-card>
 </div>
-<mat-card class="registration-success-card" *ngIf="firstName">
-    <mat-card-title fxLayout="row" fxLayoutAlign="center center" class="font-sixteen">
-        <h1><b>Registration Success</b></h1>
-    </mat-card-title>
-    <div fxLayout="row" fxLayoutAlign="center center" class="font-sixteen"><b>Congrats {{firstName}}, Your registration is successfull. You can <a [routerLink]="['/login']" color="primary">Login</a> now.</b></div>
-</mat-card>
+<div *ngIf="firstName">
+    <mat-card class="registration-success-card">
+        <mat-card-title fxLayout="row" fxLayoutAlign="center center" class="font-sixteen">
+            <h1><b>Registration Success</b></h1>
+        </mat-card-title>
+        <div fxLayout="row" fxLayoutAlign="center center" class="font-sixteen"><b>Congrats {{firstName}}, Your registration is successfull. You can <a [routerLink]="['/login']" color="primary">Login</a> now.</b></div>
+    </mat-card>
+</div>

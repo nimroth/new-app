@@ -5,11 +5,11 @@ import { map} from 'rxjs/operators';
 
 import { WebService } from './web.service';
 import { Constants } from '../constants/constants';
-import * as Model from '../model/register.response';
+import * as Model from '../model/register';
+import * as LoginModel from '../model/login';
 
 const headers = new HttpHeaders({
-  'Content-Type': 'application/json',
-  'Access-Control-Allow-Origin': '*',
+  'Content-Type': 'application/json'
 });
 
 @Injectable({
@@ -21,33 +21,44 @@ export class RegisterService {
 
   constructor(private webService: WebService) { }
 
-  getGender(): Observable<Model.KeyValuePair[]> {
-    return this.webService.get<object>(this.api.getGender,
-      headers, undefined).pipe(map(
-        (data: Model.KeyValuePair[]) => {
-      return data;
-    }
+  getGender(): Observable<Model.IdValuePair[]> {
+    return this.webService.get<object>(this.api.getGender, headers, undefined).pipe(map(
+      (data: Model.IdValuePair[]) => {
+        return data;
+      }
     ));
   }
-  getEmployee(): Observable<Model.RegistrationDetails[]> {
-    return this.webService.get<object>(this.api.employee,
-      headers, undefined).pipe(map(
-        (data: Model.RegistrationDetails[]) => {
-          return data;
-        }
-      ));
+  getUserId(): Observable<Model.UsedID> {
+    return this.webService.get<object>(this.api.getUserId, headers, undefined).pipe(map(
+      (data: Model.UsedID) => {
+        return data;
+      }
+    ));
   }
-  getEmployeeUsingId(id: number): Observable<Model.RegistrationDetails[]> {
-    return this.webService.get<object>(this.api.employee + '/' + id,
-    headers, undefined).pipe(map(
+  getUser(): Observable<Model.RegistrationDetails[]> {
+    return this.webService.get<object>(this.api.getUser, headers, undefined).pipe(map(
       (data: Model.RegistrationDetails[]) => {
         return data;
       }
     ));
   }
+  userLogin(reqData: LoginModel.LoginRequest): Observable<LoginModel.LoginResponse> {
+    return this.webService.post<object>(this.api.userLogin, reqData, headers, undefined).pipe(map(
+      (data: LoginModel.LoginResponse) => {
+        return data;
+      }
+    ));
+  }
+  // getEmployeeUsingId(id: number): Observable<Model.RegistrationDetails[]> {
+  //   return this.webService.get<object>(this.api.employee + '/' + id,
+  //   headers, undefined).pipe(map(
+  //     (data: Model.RegistrationDetails[]) => {
+  //       return data;
+  //     }
+  //   ));
+  // }
   createEmployee(data: Model.RegistrationDetails): Observable<Model.RegistrationDetails> {
-    return this.webService.post<object>(this.api.employee, data,
-      headers, undefined).pipe(map(
+    return this.webService.post<object>(this.api.createUser, data, headers, undefined).pipe(map(
         (empData: Model.RegistrationDetails) => {
           return empData;
         }

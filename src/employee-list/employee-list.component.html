@@ -7,6 +7,10 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Employee ID</th>
             <td mat-cell *matCellDef="let element">{{element.id}}</td>
         </ng-container>
+        <ng-container matColumnDef="role">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Role</th>
+            <td mat-cell *matCellDef="let element">{{element.role}}</td>
+        </ng-container>
         <ng-container matColumnDef="firstName">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>First Name</th>
             <td mat-cell *matCellDef="let element">{{element.firstName}}</td>
@@ -22,7 +26,7 @@
         <ng-container matColumnDef="details">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Details</th>
             <td mat-cell *matCellDef="let element">
-                <a>View </a>/<a (click)='exportExcel(dataSource)'> Download</a>
+                <a routerLink="/user-profile">View </a>/<a> Download</a>
             </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
